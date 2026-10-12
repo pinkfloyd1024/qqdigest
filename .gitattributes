@@ -1,0 +1,21 @@
+# ==========================================================================
+# 换行符策略
+#
+# ⚠️ 批处理文件必须是 CRLF：cmd.exe 解析 LF 换行的 .bat 会出现字节偏移错乱，
+#   表现为"双击没反应"或隐藏的 pause —— 这个坑本项目踩过一次
+#   （当时是 chcp 65001 + 中文注释导致的，换行符是同一类问题的另一个来源）。
+# ==========================================================================
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# 二进制文件不要做任何转换
+*.png binary
+*.jpg binary
+*.ico binary
+*.db binary
+*.exe binary
+*.zip binary
+*.woff2 binary
